@@ -1,12 +1,32 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <h4>Add problem</h4>
-        <input name="Add" type="button" value="Cancel" ng-click="backToHomepage()"/> 
         <form ng-submit="submit()">
             <div class="form-group">
-                <input class="form-control" type="text" ng-model="longUrl"/>
+                <label>Name</label>
+                <input class="form-control" type="text" ng-model="problemName"/>
+
+                <label>Platform</label>
+                <input class="form-control" type="text" ng-model="sourcePlatform"/>
+
+                <label>Number</label>
+                <input class="form-control" type="text" ng-model="platformNumber"/>
+
+                <label>Level</label>
+                <input class="form-control" type="text" ng-model="level"/>
+
+                <label>Description</label>
+                <!--input class="form-control" type="text" ng-model="longUrl"/-->
+                <textarea class="form-control" rows="4" ng-model="problemDescription"></textarea>
+
+                <label>Solution</label>
+                <textarea class="form-control" rows="20" ng-model="solution"></textarea>
+
+                <label>Note</label>
+                <textarea class="form-control" rows="8" ng-model="note"></textarea>
             </div>
-            <input type="submit" value="Get Your Short URL" class="btn btn-primary"/>
+            <input type="submit" value="Add problem" class="btn btn-primary"/>
+            <input name="Add" type="button" value="Cancel" ng-click="backToHomepage()"/> 
         </form>
     </div>
 </div>

@@ -7,13 +7,13 @@ var AlgoProblemSchema = new Schema({
     problemName: String,
     problemDescription: String,
     level: String,
-    problemTags: {type: String},
-    companyTags: {type: String},
+    // problemTags: {type: String},
+    // companyTags: {type: String},
     solution: String,
     note: String
 })
 
-var algoProblemModel= mongoose.model("AlgoProblemModel", AlgoProblemModel);
+var algoProblemModel= mongoose.model("AlgoProblemModel", AlgoProblemSchema);
 
 module.exports = algoProblemModel;
 

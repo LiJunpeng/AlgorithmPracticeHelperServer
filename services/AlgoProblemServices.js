@@ -2,6 +2,7 @@ var AlgoProblemModel = require("../models/AlgoProblemModel");
 
 var addAlgoProblem = function (problem, callback) {
     AlgoProblemModel.findOne({ problemName: problem.problemName }, function (err, data) {
+
         if (data) {
             // tell client data already exist
         } else {
@@ -11,33 +12,21 @@ var addAlgoProblem = function (problem, callback) {
                 problemName: problem.problemName,
                 problemDescription: problem.problemDescription,
                 level: problem.level,
-                problemTags: problem.problemTags,
-                companyTags: problem.companyTag,
+                // problemTags: problem.problemTags,
+                // companyTags: problem.companyTag,
                 solution: problem.solution,
                 note: problem.note
             });
             new_problem.save();
-            callback(new_problem);
-            // generateShortUrl(function (shortUrl) {
-            //     var url = new UrlModel({ shortUrl: shortUrl, longUrl: longUrl});
-            //     url.save();
-            //     redisClient.set(shortUrl, longUrl);
-            //     redisClient.set(longUrl, shortUrl);
-            //     callback(url);
-            // });
+            callback(problem);
         }
-     });
-
-
-    // UrlModel.find({}, function (err, urls) {
-    //     callback(convertTo62(urls.length));
-    // });
+    });
 };
 
-var getAlgoProblem = function (callback) {
-    // UrlModel.find({}, function (err, urls) {
-    //     callback(convertTo62(urls.length));
-    // });
+var getAlgoProblem = function (name, callback) {
+    AlgoProblemModel.findOne({problemName: name}, function (err, data) {
+        callback(data);
+    });
 };
 
 module.exports = {
