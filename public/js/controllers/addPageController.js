@@ -3,7 +3,7 @@ var app = angular.module("AlgorithmHelper");
 app.controller("addPageController",
     ["$scope", "$http", "$location", "$location", function ($scope, $http, $location, $location) {
     $scope.submit = function () {
-        $http.post("/api/v1/AlgoProblem", {
+        $http.post("/api/v1/AlgoProblems", {
             sourcePlatform: $scope.sourcePlatform,
             platformNumber: $scope.platformNumber,
             problemName: $scope.problemName,

@@ -5,6 +5,8 @@ var addAlgoProblem = function (problem, callback) {
 
         if (data) {
             // tell client data already exist
+            console.log("already exist");
+            callback(problem);
         } else {
             var new_problem = new AlgoProblemModel({ 
                 sourcePlatform: problem.sourcePlatform,
@@ -29,7 +31,18 @@ var getAlgoProblem = function (name, callback) {
     });
 };
 
+var getAlgoProblemList = function (callback) {   // return a list of problem names
+    AlgoProblemModel.find({}, function (err, problems) {
+        var name_list = "";
+        for(var i = 0; i < problems.length; i++) {
+            name_list = name_list + problems[i].problemName + "|";
+        }
+        callback(name_list);
+    });
+};
+
 module.exports = {
+    getAlgoProblemList: getAlgoProblemList,
     addAlgoProblem: addAlgoProblem,
     getAlgoProblem: getAlgoProblem
 };
