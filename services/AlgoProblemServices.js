@@ -37,7 +37,8 @@ var getAlgoProblemList = function (callback) {   // return a list of problem nam
         for(var i = 0; i < problems.length; i++) {
             name_list = name_list + problems[i].problemName + "|";
         }
-        callback(name_list);
+        var list = {"name_list": name_list};
+        callback(list);
     });
 };
 

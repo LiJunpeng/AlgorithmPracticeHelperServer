@@ -5,9 +5,9 @@ var jsonParser = bodyParser.json();
 var algoProblemServices = require("../services/AlgoProblemServices");
 
 router.get("/AlgoProblems", function (req, res) {
-    algoProblemServices.getAlgoProblemList(function (problem) {
-        if (problem.length > 0) {
-            res.json(problem);
+    algoProblemServices.getAlgoProblemList(function (name_list) {
+        if (name_list) {
+            res.json(name_list);
         } else {
             res.status(404).send("what????????");
         }
