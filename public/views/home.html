@@ -1,12 +1,32 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-0">
         <h4>Input your looooooooooong URL</h4>
-        <input name="Add" type="button" value="Add Algorithm" ng-click="goToAddPage()"/> 
-        <form ng-submit="submit()">
+        <input type="button" value="Add Algorithm" class="btn btn-primary" ng-click="goToAddPage()"/> 
+        <!--form ng-submit="submit()">
             <div class="form-group">
                 <input class="form-control" type="text" ng-model="longUrl"/>
             </div>
             <input type="submit" value="Get Your Short URL" class="btn btn-primary"/>
-        </form>
+        </form-->
+        <div id = "search_item_block">
+          Problem Search: <br/>
+          <input type="text" ng-model="name" />
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>Name
+                </th>
+                <th>Level
+                </th>
+            </tr>
+            <tr ng-repeat="problem in problems | filter:name">
+                <td>{{problem.name}}
+                </td>
+                <td>{{problem.level}}
+                </td>
+            </tr>
+        </table>
+
     </div>
 </div>

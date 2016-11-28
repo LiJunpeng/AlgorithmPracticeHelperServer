@@ -33,12 +33,21 @@ var getAlgoProblem = function (name, callback) {
 
 var getAlgoProblemList = function (callback) {   // return a list of problem names
     AlgoProblemModel.find({}, function (err, problems) {
-        var name_list = "";
+        // var name_list = "";
+        // for(var i = 0; i < problems.length; i++) {
+        //     name_list = name_list + problems[i].problemName + "|";
+        // }
+        // var list = {"name_list": name_list};
+
+        var name_list = [];
         for(var i = 0; i < problems.length; i++) {
-            name_list = name_list + problems[i].problemName + "|";
+            var problem_data = {};
+            problem_data['name'] = problems[i].problemName;
+            problem_data['level'] = problems[i].level;
+            name_list.push(problem_data);
         }
-        var list = {"name_list": name_list};
-        callback(list);
+
+        callback(name_list);
     });
 };
 
