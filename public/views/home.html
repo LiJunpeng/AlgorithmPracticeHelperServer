@@ -1,6 +1,19 @@
+<style>
+.selected {
+    background-color:lightblue;
+    color:white;
+    font-weight:bold;
+}
+
+.problem_detail_div {
+    word-wrap:break-word; 
+    word-break:break-all; 
+}
+</style>
+
 <div class="row">
-    <div class="col-md-6 col-md-offset-0">
-        <h4>Input your looooooooooong URL</h4>
+    <div class="col-md-4 col-md-offset-0">
+        <h4>Algo</h4>
         <input type="button" value="Add Algorithm" class="btn btn-primary" ng-click="goToAddPage()"/> 
         <!--form ng-submit="submit()">
             <div class="form-group">
@@ -20,13 +33,35 @@
                 <th>Level
                 </th>
             </tr>
-            <tr ng-repeat="problem in problems | filter:name">
+            <tr ng-repeat="problem in problems | filter:name" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
                 <td>{{problem.name}}
                 </td>
                 <td>{{problem.level}}
                 </td>
             </tr>
         </table>
-
     </div>
+
+    <div class="col-md-8">
+        <div class="col-md-12">
+            <h4 class="problem_detail_title">Problem Name</h4>
+            <div class="problem_detail_div"><pre>{{problem_detail.problemName}}</pre></div>
+        </div>
+
+        <div class="col-md-12">
+            <h4>Problem Description</h4>
+            <div class="problem_detail_div"><pre>{{problem_detail.problemDescription}}</pre></div>
+        </div>
+
+        <div class="col-md-12">
+            <h4>Problem Note</h4>
+            <div class="problem_detail_div"><pre>{{problem_detail.note}}</pre></div>
+        </div>
+
+        <div class="col-md-12">
+            <h4>Problem Solution</h4>
+            <div class="problem_detail_div"><pre class="prettyprint">{{problem_detail.solution}}</pre></div>
+        </div>
+    </div>
+
 </div>
