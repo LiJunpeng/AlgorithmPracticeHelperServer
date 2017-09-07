@@ -3,8 +3,9 @@ var app = express();
 var restRouter = require("./routes/rest");
 var indexRouter = require("./routes/index");
 var mongoose = require("mongoose");
+var dbLink = require("./DBaccess");
 
-mongoose.connect("mongodb://ljp:67890@ds149207.mlab.com:49207/algo_problem_db");
+mongoose.connect(dbLink.dbLink);
 
 app.use('/public', express.static(__dirname + "/public"));
 
